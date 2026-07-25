@@ -448,6 +448,17 @@
 /* Appearance */
 "help.url.group.appearance" = "Erscheinungsbild";
 
+/* Pick foreground in a specific format */
+"help.url.pick.foreground_format" = "Vordergrund in bestimmtem Format auswählen";
+
+/* Pick background in a specific format */
+"help.url.pick.background_format" = "Hintergrund in bestimmtem Format auswählen";
+
+/* Copy foreground in a specific format */
+"help.url.copy.foreground_format" = "Vordergrund in bestimmtem Format kopieren";
+
+/* Copy background in a specific format */
+"help.url.copy.background_format" = "Hintergrund in bestimmtem Format kopieren";
 /* Set foreground color */
 "help.url.set.foreground" = "Vordergrundfarbe setzen";
 

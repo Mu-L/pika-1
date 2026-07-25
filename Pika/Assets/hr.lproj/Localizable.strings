@@ -481,6 +481,17 @@
 /* Appearance */
 "help.url.group.appearance" = "Izgled";
 
+/* Pick foreground in a specific format */
+"help.url.pick.foreground_format" = "Odaberi prednju boju u određenom formatu";
+
+/* Pick background in a specific format */
+"help.url.pick.background_format" = "Odaberi boju pozadine u određenom formatu";
+
+/* Copy foreground in a specific format */
+"help.url.copy.foreground_format" = "Kopiraj prednju boju u određenom formatu";
+
+/* Copy background in a specific format */
+"help.url.copy.background_format" = "Kopiraj boju pozadine u određenom formatu";
 /* Set foreground color */
 "help.url.set.foreground" = "Postavi prednju boju";
 

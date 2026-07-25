@@ -448,6 +448,17 @@
 /* Appearance */
 "help.url.group.appearance" = "外观";
 
+/* Pick foreground in a specific format */
+"help.url.pick.foreground_format" = "以指定格式选择前景色";
+
+/* Pick background in a specific format */
+"help.url.pick.background_format" = "以指定格式选择背景色";
+
+/* Copy foreground in a specific format */
+"help.url.copy.foreground_format" = "以指定格式复制前景色";
+
+/* Copy background in a specific format */
+"help.url.copy.background_format" = "以指定格式复制背景色";
 /* Set foreground color */
 "help.url.set.foreground" = "设置前景色";
 

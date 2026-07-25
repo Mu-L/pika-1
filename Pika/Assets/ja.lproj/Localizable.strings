@@ -481,6 +481,17 @@
 /* Appearance */
 "help.url.group.appearance" = "外観";
 
+/* Pick foreground in a specific format */
+"help.url.pick.foreground_format" = "指定した形式で前景色をピック";
+
+/* Pick background in a specific format */
+"help.url.pick.background_format" = "指定した形式で背景色をピック";
+
+/* Copy foreground in a specific format */
+"help.url.copy.foreground_format" = "指定した形式で前景色をコピー";
+
+/* Copy background in a specific format */
+"help.url.copy.background_format" = "指定した形式で背景色をコピー";
 /* Set foreground color */
 "help.url.set.foreground" = "前景色を設定";
 

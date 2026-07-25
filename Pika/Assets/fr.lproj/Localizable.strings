@@ -448,6 +448,17 @@
 /* Appearance */
 "help.url.group.appearance" = "Apparence";
 
+/* Pick foreground in a specific format */
+"help.url.pick.foreground_format" = "Sélectionner un premier plan dans un format spécifique";
+
+/* Pick background in a specific format */
+"help.url.pick.background_format" = "Sélectionner un arrière-plan dans un format spécifique";
+
+/* Copy foreground in a specific format */
+"help.url.copy.foreground_format" = "Copier le premier plan dans un format spécifique";
+
+/* Copy background in a specific format */
+"help.url.copy.background_format" = "Copier l'arrière-plan dans un format spécifique";
 /* Set foreground color */
 "help.url.set.foreground" = "Définir la couleur de premier plan";
 

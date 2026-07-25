@@ -505,6 +505,17 @@
 /* Appearance */
 "help.url.group.appearance" = "Appearance";
 
+/* Pick foreground in a specific format */
+"help.url.pick.foreground_format" = "Pick foreground in a specific format";
+
+/* Pick background in a specific format */
+"help.url.pick.background_format" = "Pick background in a specific format";
+
+/* Copy foreground in a specific format */
+"help.url.copy.foreground_format" = "Copy foreground in a specific format";
+
+/* Copy background in a specific format */
+"help.url.copy.background_format" = "Copy background in a specific format";
 /* Set foreground color */
 "help.url.set.foreground" = "Set foreground color";
 

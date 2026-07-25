@@ -47,6 +47,8 @@ let urlGroups: [URLGroup] = [
         ("pika://pick/foreground", PikaText.textPickForeground),
         ("pika://pick/background", PikaText.textPickBackground),
         ("pika://pick/contrast", PikaText.textPickContrast),
+        ("pika://pick/foreground/<format>", PikaText.textUrlPickForegroundFormat),
+        ("pika://pick/background/<format>", PikaText.textUrlPickBackgroundFormat),
     ]),
     (PikaText.textColorSystemPicker, [
         ("pika://system/foreground", PikaText.textColorSystemPickerForegroundSimple),
@@ -55,6 +57,8 @@ let urlGroups: [URLGroup] = [
     (PikaText.textUrlGroupCopy, [
         ("pika://copy/foreground", PikaText.textCopyForeground),
         ("pika://copy/background", PikaText.textCopyBackground),
+        ("pika://copy/foreground/<format>", PikaText.textUrlCopyForegroundFormat),
+        ("pika://copy/background/<format>", PikaText.textUrlCopyBackgroundFormat),
         ("pika://copy/text", PikaText.textMenuCopyAllAsText),
         ("pika://copy/json", PikaText.textMenuCopyAllAsJSON),
     ]),

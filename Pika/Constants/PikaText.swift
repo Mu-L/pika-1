@@ -172,6 +172,18 @@ enum PikaText {
         "preferences.pick.contrasting",
         comment: "Pick a contrasting background color after the foreground"
     )
+    static let textWindowShadow = NSLocalizedString(
+        "preferences.shadow.description",
+        comment: "Window shadow"
+    )
+    static let textWindowSettingsTitle = NSLocalizedString(
+        "preferences.window.title",
+        comment: "Window Settings"
+    )
+    static let textExpandToFit = NSLocalizedString(
+        "content.expandToFit",
+        comment: "Expand the window to fit hidden elements"
+    )
     static let textIconDescription = NSLocalizedString(
         "preferences.icon.description",
         comment: "Hide menu bar icon"
@@ -294,6 +306,24 @@ enum PikaText {
     static let textUrlGroupAppearance = NSLocalizedString("help.url.group.appearance", comment: "Appearance")
     static let textUrlGroupCompliance = NSLocalizedString("help.url.group.compliance", comment: "Compliance")
     static let textUrlGroupPreview = NSLocalizedString("help.url.group.preview", comment: "Preview")
+
+    // URL Trigger Descriptions — Pick/Copy in Format
+    static let textUrlPickForegroundFormat = NSLocalizedString(
+        "help.url.pick.foreground_format",
+        comment: "Pick foreground in a specific format"
+    )
+    static let textUrlPickBackgroundFormat = NSLocalizedString(
+        "help.url.pick.background_format",
+        comment: "Pick background in a specific format"
+    )
+    static let textUrlCopyForegroundFormat = NSLocalizedString(
+        "help.url.copy.foreground_format",
+        comment: "Copy foreground in a specific format"
+    )
+    static let textUrlCopyBackgroundFormat = NSLocalizedString(
+        "help.url.copy.background_format",
+        comment: "Copy background in a specific format"
+    )
 
     // URL Trigger Descriptions — Set Color
     static let textUrlSetForeground = NSLocalizedString("help.url.set.foreground", comment: "Set foreground color")

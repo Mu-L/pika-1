@@ -31,8 +31,6 @@ final class LookUpAPI {
         let (data, _) = try await session.data(for: request)
         let response = try jsonDecoder.decode(LookUpResponse.self, from: data)
 
-        print(response)
-
         return response.results.first.map {
             .init(version: $0.version,
                   minimumOsVersion: $0.minimumOsVersion,

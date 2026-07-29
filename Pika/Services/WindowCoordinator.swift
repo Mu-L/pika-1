@@ -219,7 +219,7 @@ class WindowCoordinator: NSObject {
     }
 
     private func makeShadowWindow() -> NSWindow {
-        let window = NSWindow(
+        let window = CompanionWindow(
             contentRect: shadowFrame(),
             styleMask: .borderless,
             backing: .buffered,
@@ -240,7 +240,7 @@ class WindowCoordinator: NSObject {
     }
 
     private func makeBorderWindow() -> NSWindow {
-        let window = NSWindow(
+        let window = CompanionWindow(
             contentRect: borderFrame(),
             styleMask: .borderless,
             backing: .buffered,
@@ -440,6 +440,20 @@ class WindowCoordinator: NSObject {
         splashTouchBarController = SplashTouchBarController(window: splashWindow)
         splashWindow.contentView = NSHostingView(rootView: SplashView().ignoresSafeArea())
         splashWindow.fadeIn(nil)
+    }
+}
+
+/// A borderless, decorative companion window (the hairline border and the custom shadow)
+/// that must be free to extend past the top of the screen. AppKit's default
+/// `constrainFrameRect(_:to:)` clamps a window so its top edge stays below the menu bar;
+/// because these companions sit `borderPad`/`shadowPad` *beyond* the main window's frame,
+/// that clamp pins their top near the screen edge as the main window is dragged upward,
+/// while their height stays fixed — dragging their bottom edge down and detaching the
+/// outline/shadow from the window. They ignore mouse events and only trace the main frame,
+/// so opt out of constraining entirely and let them track it exactly, even off-screen.
+private final class CompanionWindow: NSWindow {
+    override func constrainFrameRect(_ frameRect: NSRect, to _: NSScreen?) -> NSRect {
+        frameRect
     }
 }
 

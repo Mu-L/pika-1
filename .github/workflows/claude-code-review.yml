@@ -17,26 +17,13 @@ jobs:
   review:
     # Standard lives in superhighfives/control-room so every repo reviews the
     # same way. Repo-specific rules go in CLAUDE.md.
+    #
+    # No verify_commands: the review reads the diff and doesn't build. An Xcode
+    # build outlives the review agent's per-command timeout, gets backgrounded,
+    # and the agent stalls waiting for it — finishing a green check without ever
+    # posting a review. tests.yml already builds and runs the suite (~90s), so
+    # the review doesn't need to. Reading-only, it runs fast on the default
+    # ubuntu runner and posts every time.
     uses: superhighfives/control-room/.github/workflows/review.yml@main
-    with:
-      # Pinned to match tests.yml — macos-latest doesn't ship Xcode 16.3, so
-      # xcode-select fails there. Bump both together.
-      runs_on: macos-15
-      runtime: none
-      setup_command: sudo xcode-select -s /Applications/Xcode_16.3.app
-      # Build for testing rather than a full test run: it catches the compile
-      # errors that matter for review without the runtime cost of the suite,
-      # which tests.yml already covers.
-      #
-      # Resolve Swift packages first, as a separate step — same as tests.yml.
-      # Without it, build-for-testing resolves SPM cold, and the `| tail -40`
-      # buffers all output so nothing streams; the review agent sits on a build
-      # that can run past the timeout and gets cancelled without ever reviewing.
-      verify_commands: |
-        xcodebuild -resolvePackageDependencies -project Pika.xcodeproj -scheme Pika
-        set -o pipefail && xcodebuild build-for-testing -project Pika.xcodeproj -scheme Pika -destination 'platform=macOS' -derivedDataPath build/DerivedData CODE_SIGNING_ALLOWED=NO CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO 2>&1 | tail -40
-      # Safety net over the pre-resolve fix above, so a slow cold build can't get
-      # cancelled mid-review before Claude posts anything.
-      timeout_minutes: 45
     secrets:
       CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}

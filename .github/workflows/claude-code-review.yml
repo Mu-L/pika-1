@@ -27,8 +27,16 @@ jobs:
       # Build for testing rather than a full test run: it catches the compile
       # errors that matter for review without the runtime cost of the suite,
       # which tests.yml already covers.
+      #
+      # Resolve Swift packages first, as a separate step — same as tests.yml.
+      # Without it, build-for-testing resolves SPM cold, and the `| tail -40`
+      # buffers all output so nothing streams; the review agent sits on a build
+      # that can run past the timeout and gets cancelled without ever reviewing.
       verify_commands: |
+        xcodebuild -resolvePackageDependencies -project Pika.xcodeproj -scheme Pika
         set -o pipefail && xcodebuild build-for-testing -project Pika.xcodeproj -scheme Pika -destination 'platform=macOS' -derivedDataPath build/DerivedData CODE_SIGNING_ALLOWED=NO CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO 2>&1 | tail -40
-      timeout_minutes: 30
+      # Safety net over the pre-resolve fix above, so a slow cold build can't get
+      # cancelled mid-review before Claude posts anything.
+      timeout_minutes: 45
     secrets:
       CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
